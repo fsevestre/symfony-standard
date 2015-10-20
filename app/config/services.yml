@@ -7,3 +7,7 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.listener.terminate_listener:
+        class: AppBundle\Listener\TerminateListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.terminate, method: onKernelTerminate }
